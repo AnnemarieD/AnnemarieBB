@@ -1,0 +1,24 @@
+{
+  "name": "annemariebb",
+  "version": "1.0.0",
+  "description": "Test assignment for BB",
+  "main": "index.js",
+  "scripts": {
+    "test": "nightwatch specs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnnemarieD/AnnemarieBB.git"
+  },
+  "author": "Annemarie Doran",
+  "license": "MIT",
+  "homepage": "https://github.com/AnnemarieD/AnnemarieBB#readme",
+  "dependencies": {
+    "nightwatch": "^1.0.19",
+    "selenium-server-standalone": "^2.53.1"
+  },
+  "devDependencies": {
+    "chromedriver": "^74.0.0",
+    "geckodriver": "^1.16.2"
+  }
+}
