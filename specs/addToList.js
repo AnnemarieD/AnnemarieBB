@@ -1,15 +1,15 @@
 require('../nightwatch.json');
+require('../pageObjects/homePage.js');
 
 module.exports = {
     'Mark multiple to do item as done' : function (browser) {
-        var homePage = browser.page.homePage();
+        const homePage = browser.page.homePage();
 
-        homePage.navigate();
-
-        browser
+        homePage
+            .navigate()
             .waitForElementVisible('#todo_6')
-            .browser.homePage.homePageCommands.deleteAllTodoItems()
+            .getAllTodoListItems()
             .assert.elementNotPresent("#todo0")
             .end()
     }
-}
+};

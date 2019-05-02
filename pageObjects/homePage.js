@@ -1,20 +1,35 @@
 const homePageCommands = {
-    getAllTodoListItems: function() {
+    getAllTodoListItems: function(browser) {
         this.api.pause(1000);
-        let listItems = document.querySelectorAll('@todoListItem')
-        return listItems
-    },
-    deleteAllTodoItems: function() {
-        this.api.pause(1000);
-        let listItems = this.getAllTodoListItems();
-        [].forEach.call(listItems, function (item) {
-            this.click('@todoListItemDeleteButton')
-            this.pause(1000)
-        });
+        this.api.elements('@todoListItem', 'li', function (result) {
+        result.value.map(function(element, err) {
+            this.api.elementIdAttribute(element.ELEMENT, 'innerText', function(res) {
+                console.log(res.value)
+            })
+        })
 
-        return this;
-    }
-};
+        this.api.elements('@todoListItem', 'li', function(result) {
+            console.log(result);
+            return(result);
+        });
+        return this.result;
+    })
+    // deleteAllTodoItems: function(browser) {
+    //     this.api.pause(1000);
+    //     let listItems = this.getAllTodoListItems();
+    //     // this.api.elements(listItems, function() {
+    //     //    this.click('@todoListItemDeleteButton');
+    //     //    this.pause(1000);
+    //     // });
+    //     [].forEach.call(listItems, function (item) {
+    //         this.click('@todoListItemDeleteButton');
+    //         this.pause(1000);
+    //     });
+    //
+    //     return this;
+    // }
+}
+}
 
 module.exports = {
     commands: [homePageCommands],
